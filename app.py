@@ -1,4 +1,4 @@
-from flask  import Flask, render_template
+from flask  import Flask, render_template,request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -20,8 +20,10 @@ class Todo(db.Model):
 
 
 
-@app.route('/')
+@app.route('/', methods=['GET','POST'])
 def hello_world():
+    if request.method=="POST":
+        print("post")
     todo= Todo(title="First Todo", desc="Start investing in stock market")
     db.session.add(todo)
     db.session.commit()
