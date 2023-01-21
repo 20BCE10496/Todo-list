@@ -78,6 +78,9 @@
           <th scope="col">Title</th>
           <th scope="col">Description</th>
           <th scope="col">Time</th>
+          <!-- <th scope="col">Action</th> -->
+
+          
         </tr>
       </thead>
       <tbody>
@@ -87,6 +90,8 @@
             <td>{{todo.title}}</td>
             <td>{{todo.desc}}</td>
             <td>{{todo.date_created}}</td>
+           <!-- <td><a href="/delete/{{todo.sno}}" type="button" class="btn btn-primary">Delete</button></td>          -->
+
           </tr>
         {% endfor %}
       
