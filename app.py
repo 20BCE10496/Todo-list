@@ -39,5 +39,18 @@ def products():
     print(allTodo)
     return 'this is product!'
 
+@app.route('/update')
+def update():
+    allTodo=Todo.query.all()
+    print(allTodo)
+    return 'this is product!'
+
+@app.route('/delete/<int:sno>')
+def delete(sno):
+    todo=Todo.query.filter_by(sno=sno).first()
+    db.session.delete(todo)
+    db.session.commit()
+    return 'this is product!'
+
 if __name__=="__main__":
     app.run(debug=True)
