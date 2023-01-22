@@ -1,4 +1,4 @@
-from flask  import Flask, render_template, request
+from flask  import Flask, render_template, request,redirect
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 
@@ -50,7 +50,7 @@ def delete(sno):
     todo=Todo.query.filter_by(sno=sno).first()
     db.session.delete(todo)
     db.session.commit()
-    return 'this is product!'
+    return redirect("/")
 
 if __name__=="__main__":
     app.run(debug=True)
