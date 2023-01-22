@@ -39,11 +39,10 @@ def products():
     print(allTodo)
     return 'this is product!'
 
-@app.route('/update')
-def update():
-    allTodo=Todo.query.all()
-    print(allTodo)
-    return 'this is product!'
+@app.route('/update/<int:sno>')
+def update(sno):
+    todo=Todo.query.filter_by(sno=sno).first()
+    return render_template('update.html', todo=todo)
 
 @app.route('/delete/<int:sno>')
 def delete(sno):
