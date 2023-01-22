@@ -50,8 +50,9 @@ def update(sno):
         db.session.add(todo)
         db.session.commit()
         return redirect("/")
-        todo=Todo.query.filter_by(sno=sno).first()
-        return render_template('update.html', todo=todo)
+
+     todo=Todo.query.filter_by(sno=sno).first()
+     return render_template('update.html', todo=todo)
 
 @app.route('/delete/<int:sno>')
 def delete(sno):
